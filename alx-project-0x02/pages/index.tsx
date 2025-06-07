@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
-import Head from"next/head";
-import Header from "../components/layout/Header";
- 
+import Head from "next/head";
+import Header from "../components/layout/Header"; // ✅ Import the Header component
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,8 +18,13 @@ export default function Home() {
     <>
       <Head>
         <title>Welcome to My Blog</title>
-        <meta name="description" content="A blog interface built with Next.js, TypeScript, and Tailwind CSS" />
+        <meta
+          name="description"
+          content="A blog interface built with Next.js, TypeScript, and Tailwind CSS"
+        />
       </Head>
+
+      <Header /> {/*Include the Header at the top of the page */}
 
       <main
         className={`min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-800 ${geistSans.variable}`}
