@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <>
     <Header />{/*render the header */}
-    <main className="min-h-screen flex items-center justify-center bg-blue-100 text-black">
+    <main className="min-h-screen flex flex-col items-center gap-6 p-6 bg-blue-100 text-black">
       <h1 className="text-3xl font-bold">About Us</h1>
 
       {/* Three buttons with different sizes and shapes */}
