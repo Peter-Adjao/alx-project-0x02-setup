@@ -15,6 +15,7 @@ export interface ButtonProps {
 // interfaces/index.ts
 
 export interface PostProps {
+  content: string;
   id: number;  
   title: string;
   body: string; // JSONPlaceholder uses 'body' for content

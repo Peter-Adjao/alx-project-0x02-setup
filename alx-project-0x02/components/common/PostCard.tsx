@@ -3,7 +3,7 @@
 import React from "react";
 import { type PostProps } from "@/interfaces";
 
-const PostCard: React.FC<PostProps> = ({ id, title, body, userId }) => {
+const PostCard: React.FC<PostProps> = ({ id, content, title, body, userId }) => {
   return (
     <div className="bg-white shadow-md p-4 rounded-md mb-4">
       <h2 className="text-xl font-bold mb-2">{title}</h2>

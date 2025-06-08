@@ -1,29 +1,36 @@
-
-import Header from "@/components/layout/Header";
-import { useEffect, useState } from "react";
+// pages/posts.tsx
+import { GetStaticProps } from "next";
 import PostCard from "@/components/common/PostCard";
 import { PostProps } from "@/interfaces";
 
-export default function PostsPage() {
-    const [posts, setPosts] = useState<PostProps[]>([]);
+interface PostsPageProps {
+  posts: PostProps[];
+}
 
-  useEffect(() => {
-    // Fetching posts from JSONPlaceholder API
-    fetch("https://jsonplaceholder.typicode.com/posts?_limit=10")
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
-  }, []);
+export const getStaticProps: GetStaticProps<PostsPageProps> = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
+  const posts: PostProps[] = await res.json();
 
+  return {
+    props: {
+      posts,
+    },
+  };
+};
+
+export default function PostsPage({ posts }: PostsPageProps) {
   return (
-    <>
-    <Header />{/*render the header */}
-    <main className="min-h-screen flex flex-col items-center gap-6 p-6 bg-blue-100 text-black">
-      <h1 className="text-3xl font-bold">All Posts</h1>
-      {posts.map((post) => (
-          <PostCard key={post.id} title={post.title} body={post.body} userId={post.userId} id={0} />
+    <main className="p-4">
+      <h1 className="text-3xl font-bold mb-6">Posts</h1>
+      <div className="space-y-4">
+        {posts.map((post) => (
+          <PostCard
+                key={post.id}
+                title={post.title}
+                content={post.body}
+                userId={post.userId} id={0} body={""}          />
         ))}
-
+      </div>
     </main>
-    </>
   );
 }
