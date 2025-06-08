@@ -1,4 +1,5 @@
 // pages/posts.tsx
+import Header from "@/components/layout/Header";
 import { GetStaticProps } from "next";
 import PostCard from "@/components/common/PostCard";
 import { PostProps } from "@/interfaces";
@@ -20,6 +21,8 @@ export const getStaticProps: GetStaticProps<PostsPageProps> = async () => {
 
 export default function PostsPage({ posts }: PostsPageProps) {
   return (
+    <>
+     <Header /> {/*Include the Header at the top of the page */}
     <main className="p-4">
       <h1 className="text-3xl font-bold mb-6">Posts</h1>
       <div className="space-y-4">
@@ -32,5 +35,6 @@ export default function PostsPage({ posts }: PostsPageProps) {
         ))}
       </div>
     </main>
+    </>
   );
 }

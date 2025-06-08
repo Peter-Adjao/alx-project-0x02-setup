@@ -31,6 +31,11 @@ export default function Header() {
           <Link href="/posts" className="text-white border-b-4 border-transparent hover:border-fuchsia-800 pb-1">Posts</Link>
         )}
 
+        {/* Show Posts link only if we're NOT on the Posts page */}
+        {currentPath !== "/users" && (
+          <Link href="/users" className="text-white border-b-4 border-transparent hover:border-fuchsia-800 pb-1">Users</Link>
+        )}
+
         {/*<Link href="/home" className="text-white">Home</Link>*/}
         {/*<Link href="/about" className="text-white">About</Link>*/}
 
