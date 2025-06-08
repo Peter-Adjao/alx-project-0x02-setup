@@ -12,3 +12,12 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
+// interfaces/index.ts
+
+export interface PostProps {
+  id: number;  
+  title: string;
+  body: string; // JSONPlaceholder uses 'body' for content
+  userId: number;
+}
+
